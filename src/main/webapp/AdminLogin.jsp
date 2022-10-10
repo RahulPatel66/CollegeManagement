@@ -1,0 +1,58 @@
+<head>
+<title>TSEC - Admin Login Page</title>
+<style type="text/css">
+body{
+		background-image: url("./images/bg-4.jpg");
+		background-size:cover;
+		background-position:center;
+		background-repeat:no-repeat;
+		
+	}
+</style>
+<%@include file="components/files.jsp" %>
+</head>
+<%@include file="components/files.jsp" %>
+
+<%@include file="components/navbar.jsp" %>
+<div class="card bg-light m-auto " style="width:30%;top:7rem" >
+ <img class="card-img-top m-auto" src="./images/user.webp" alt="Card image cap" style="width:20%;height:20%">
+<div class="card-body">
+<h5 class="card-title text-center"  >Admin Login Page</h5>
+<%! String message=null; %>
+<%
+	message=(String)session.getAttribute("adminmessage");
+	if(message!=null)
+	{
+%>
+<div class="alert alert-warning alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong><%=message %></strong>
+</div>
+<% 
+
+session.removeAttribute("adminmessage");
+
+}
+
+%>
+<form action="AdminLogin">
+	<div class="form-group">
+    <label for="exampleInputEmail1">Email Address</label>
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+  </div>
+ 
+    <!-- 
+    <a href="ForgotePassword.jsp"class="btn" style="display:block;text-align:right;color:blue;text-decoration:underline;">Forgote Password</a> -->
+   <div class="form-group" style="text-align:center">
+ 
+ <input type="submit"  class="btn form-control btn-primary" value="Login" >
+</div>
+ 
+</form>
+</div>
+
+</div>
